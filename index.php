@@ -200,7 +200,7 @@
             $jogosultsag = "admin";
             $aktivitas = 0;
             //3. lépés: Távolítsuk el a kommentet a lenti függvény elől, hogy az adatfrissítés megtörténjen!
-            $peldaAdatbazis->update($id,$felhasznalonev,$jelszo,$email,$jogosultsag,$aktivitas);
+            //$peldaAdatbazis->update($id,$felhasznalonev,$jelszo,$email,$jogosultsag,$aktivitas);
         //Kapcsolat bontása
         $peldaAdatbazis->kapcsolatBontasa();
 
