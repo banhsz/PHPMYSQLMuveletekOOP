@@ -1,5 +1,9 @@
 MYSQL műveletek (Select,Insert,Delete,Update) végrehajtása PHP nyelven. Objektum orientáltan megírva.
 
+HASZNÁLAT:
+1. lépés: Importáljuk a pelda_adatbazis.sql fájl a MySQL kliensünkbe!
+2. lépés: Az index.php fájlt tegyük a megfelelő helyre, majd nyissuk meg a böngészőnkben és a szövegszerkesztőnkben is!
+
 A kód 2 PHP blokkra van felbontva:
 
 -Az első blokkban található az osztálydefiníció (Adattagok+függvények). Ezt lehet alapként használni más projektekbe. 
