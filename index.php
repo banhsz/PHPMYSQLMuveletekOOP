@@ -102,6 +102,25 @@
                 }
             }
 
+            //DELETE utasítás
+            function delete($id)
+            {
+                $this->sql =
+                    "
+                    DELETE FROM felhasznalok 
+                    WHERE id = ".$id."
+                    ";
+
+                if ($this->conn->query($this->sql) === TRUE) 
+                {
+                  echo "Sikeres törlés!</br>";
+                } 
+                else 
+                {
+                  echo "Sikertelen törlés!</br>";
+                }
+            }
+
         }
     ?>
 
@@ -110,6 +129,19 @@
         //Az adatbázis példányosítása és függvények hívása. külön php blokkba tettem, hogy jobban átláthatóbb legyen
         //Példányosítás
         $peldaAdatbazis = new Adatbazis();
+
+        //
+        //DELETE
+        //
+        //Kapcsolódás
+        $peldaAdatbazis->kapcsolatNyitasa();
+        //Delete utasítás
+            //1. lépés: Adjuk meg, hogy hanyas ID-jű felhasználót szeretnénk törölni!
+            $id = 4;
+            //2. lépés: Töröljük a kommentet a lenti függvény elől, hogy a törlés megtörténjen!
+            //$peldaAdatbazis->delete($id);
+        //Kapcsolat bontása
+        $peldaAdatbazis->kapcsolatBontasa();
 
         //
         //INSERT
