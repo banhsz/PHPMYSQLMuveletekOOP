@@ -1,6 +1,7 @@
 MYSQL műveletek (Select,Insert,Delete,Update) végrehajtása PHP nyelven. Objektum orientáltan megírva.
 
 A kód 2 PHP blokkra van felbontva:
+
 -Az első blokkban található az osztálydefiníció (Adattagok+függvények). Ezt lehet alapként használni más projektekbe. 
 (Természetesen át kell majd írni a megfelelő sorokat: adatbázis neve,táblanevek,oszlopnevek stb..)
   
