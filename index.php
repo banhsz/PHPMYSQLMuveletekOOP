@@ -75,6 +75,33 @@
                 }
             }				
             
+            //INSERT utasítás
+            //Fontos, hogy a szöveg típusu mezőknél a szintakszis:'".$valtozoNeve."' míg a szám típusuaknál:".$valtozoNeve."
+            function insert($felhasznalonev,$jelszo,$email,$jogosultsag,$aktivitas)
+            {
+                $this->sql = 
+                    "
+                    INSERT INTO felhasznalok (`felhasznalonev`, `jelszo`, `e-mail`,`jogosultsag`, `aktiv`)
+                    VALUES 
+                    (
+                    '".$felhasznalonev."', 
+                    '".$jelszo."', 
+                    '".$email."',
+                    '".$jogosultsag."',
+                    ".$aktivitas."
+                    )
+                    ";
+                
+                if ($this->conn->query($this->sql) === TRUE) 
+                {
+                    echo "Sikeres regisztráció!<br>";
+                } 
+                else 
+                {
+                    echo "Sikertelen regisztráció!<br>";
+                }
+            }
+
         }
     ?>
 
@@ -84,12 +111,33 @@
         //Példányosítás
         $peldaAdatbazis = new Adatbazis();
 
+        //
+        //INSERT
+        //
+        //Kapcsolódás
+        $peldaAdatbazis->kapcsolatNyitasa();
+        //Insert utasítás
+            //1. lépés: Irjunk be példa adatokat a lenti változókba!
+            $felhasznalonev = "István";
+            $jelszo = "isti99";
+            $email = "istvan99@gmail.com";
+            $jogosultsag = "felhasználó";
+            $aktivitas = 1;
+            //2. lépés: Távolítsuk el a kommentet a lenti függvény elől, hogy a beszúrás megtörténjen!
+            //$peldaAdatbazis->insert($felhasznalonev,$jelszo,$email,$jogosultsag,$aktivitas);
+        //Kapcsolat bontása
+        $peldaAdatbazis->kapcsolatBontasa();
+
+        //
+        //SELECT
+        //
         //Kapcsolódás
         $peldaAdatbazis->kapcsolatNyitasa();
         //Select utasítás
         $peldaAdatbazis->select();
         //Kapcsolat bontása
         $peldaAdatbazis->kapcsolatBontasa();
+
     ?>
 </body>
 </html>
