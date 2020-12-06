@@ -1,4 +1,4 @@
-<!-- Az adatbázist (pelda_adatbazis.db) importáljuk a tesztelés előtt! -->
+<!-- Az adatbázist (pelda_adatbazis.sql) importáljuk a tesztelés előtt! -->
 <!DOCTYPE html>
 <html lang="hu">
 <head>
