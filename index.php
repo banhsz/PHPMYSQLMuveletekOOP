@@ -121,6 +121,31 @@
                 }
             }
 
+            //UPDATE utasítás
+            //Fontos, hogy a szöveg típusu mezőknél a szintakszis:'".$valtozoNeve."' míg a szám típusuaknál:".$valtozoNeve."
+            function update($id,$felhasznalonev,$jelszo,$email,$jogosultsag,$aktivitas)
+            {
+                $this->sql = 
+                    "
+                    UPDATE felhasznalok 
+                    SET 
+                    `felhasznalonev`='".$felhasznalonev."', 
+                    `jelszo`='".$jelszo."', 
+                    `e-mail`='".$email."',
+                    `jogosultsag`='".$jogosultsag."', 
+                    `aktiv`=".$aktivitas."
+                    WHERE id=".$id."
+                    ";
+    
+                if ($this->conn->query($this->sql) === TRUE) 
+                {
+                  echo "Sikeres adat frissítés!</br>";
+                } else 
+                {
+                  echo "Sikertelen adat frissítés!</br>";
+                }
+            }
+
         }
     ?>
 
@@ -137,7 +162,7 @@
         $peldaAdatbazis->kapcsolatNyitasa();
         //Delete utasítás
             //1. lépés: Adjuk meg, hogy hanyas ID-jű felhasználót szeretnénk törölni!
-            $id = 4;
+            $id = 6;
             //2. lépés: Töröljük a kommentet a lenti függvény elől, hogy a törlés megtörténjen!
             //$peldaAdatbazis->delete($id);
         //Kapcsolat bontása
@@ -150,9 +175,9 @@
         $peldaAdatbazis->kapcsolatNyitasa();
         //Insert utasítás
             //1. lépés: Irjunk be példa adatokat a lenti változókba!
-            $felhasznalonev = "István";
-            $jelszo = "isti99";
-            $email = "istvan99@gmail.com";
+            $felhasznalonev = "Jani";
+            $jelszo = "janika66";
+            $email = "janos1987@gmail.com";
             $jogosultsag = "felhasználó";
             $aktivitas = 1;
             //2. lépés: Távolítsuk el a kommentet a lenti függvény elől, hogy a beszúrás megtörténjen!
@@ -161,7 +186,27 @@
         $peldaAdatbazis->kapcsolatBontasa();
 
         //
+        //UPDATE
+        //
+        //Kapcsolódás
+        $peldaAdatbazis->kapcsolatNyitasa();
+        //Update utasítás
+            //1. lépés: Adjuk meg, hogy hanyas ID-jű felhasználó adatait szeretnénk frissíteni!
+            $id = 3;
+            //2. lépés: Irjunk be az új adatokat a lenti változókba!
+            $felhasznalonev = "Jani";
+            $jelszo = "janika66";
+            $email = "janos1987@gmail.com";
+            $jogosultsag = "admin";
+            $aktivitas = 0;
+            //3. lépés: Távolítsuk el a kommentet a lenti függvény elől, hogy az adatfrissítés megtörténjen!
+            $peldaAdatbazis->update($id,$felhasznalonev,$jelszo,$email,$jogosultsag,$aktivitas);
+        //Kapcsolat bontása
+        $peldaAdatbazis->kapcsolatBontasa();
+
+        //
         //SELECT
+        //Fontos, hogy a Select utasítás mindig a legutolsó legyen. Ugyanis ha előbb listázunk, majd módosítunk adatokat, akkor nem fog helyesen megjelenni.
         //
         //Kapcsolódás
         $peldaAdatbazis->kapcsolatNyitasa();
